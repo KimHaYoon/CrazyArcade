@@ -25,5 +25,9 @@ private:
 	int		m_iMinute;
 	int		m_iTenSec;
 	int		m_iOneSec;
+	UINT	m_iCharacter;
+
+public:
+	void SetCharacter(UINT iNum);
 };
 

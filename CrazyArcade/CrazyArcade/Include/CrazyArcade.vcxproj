@@ -151,6 +151,7 @@
     <ClInclude Include="Object\Number.h" />
     <ClInclude Include="Object\Obj.h" />
     <ClInclude Include="Object\ObjectManager.h" />
+    <ClInclude Include="Object\Player.h" />
     <ClInclude Include="Object\Tile.h" />
     <ClInclude Include="Object\TileMap.h" />
     <ClInclude Include="Object\UIButton.h" />
@@ -198,6 +199,7 @@
     <ClCompile Include="Object\Number.cpp" />
     <ClCompile Include="Object\Obj.cpp" />
     <ClCompile Include="Object\ObjectManager.cpp" />
+    <ClCompile Include="Object\Player.cpp" />
     <ClCompile Include="Object\Tile.cpp" />
     <ClCompile Include="Object\TileMap.cpp" />
     <ClCompile Include="Object\UIButton.cpp" />
