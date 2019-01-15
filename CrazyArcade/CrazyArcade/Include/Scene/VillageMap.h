@@ -19,5 +19,11 @@ public:
 
 private:
 	void ExitButtonCallback(class CUIButton* pButton);
+
+private:
+	float	m_fGameLimitTime;
+	int		m_iMinute;
+	int		m_iTenSec;
+	int		m_iOneSec;
 };
 

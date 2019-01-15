@@ -20,7 +20,7 @@ bool CNumber::Init()
 {
 	SetTexture("Number", L"03.InGame/InGame_Image_Num.bmp", true, RGB(0, 0, 255));
 	SetPivot(0.f, 0.f);
-	SetAnimation("Number", AT_LINE, AO_LOOP, 100, 12, 10, 1, 1.f);
+	SetAnimation("TimeUI.anm");
 	m_pAnimation->SetAnimationStart(false);
 
 	return true;

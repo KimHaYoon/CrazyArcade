@@ -1,28 +1,10 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(377,5): warning MSB8004: Output 디렉터리가 슬래시로 끝나지 않습니다. Output 디렉터리의 적절한 평가를 허용하는 데 필요하므로 이 빌드 인스턴스에서 슬래시를 추가합니다.
-  Obj.cpp
-d:\assortrock\api\crazyarcade\crazyarcade\include\gameframework.h(134): warning C4244: '=': 'const LONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-d:\assortrock\api\crazyarcade\crazyarcade\include\gameframework.h(135): warning C4244: '=': 'const LONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-d:\assortrock\api\crazyarcade\crazyarcade\include\gameframework.h(146): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-d:\assortrock\api\crazyarcade\crazyarcade\include\gameframework.h(147): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-d:\assortrock\api\crazyarcade\crazyarcade\include\gameframework.h(447): warning C4244: '인수': 'const LONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-d:\assortrock\api\crazyarcade\crazyarcade\include\object\obj.cpp(77): warning C4244: '=': 'UINT'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-d:\assortrock\api\crazyarcade\crazyarcade\include\object\obj.cpp(78): warning C4244: '=': 'UINT'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-d:\assortrock\api\crazyarcade\crazyarcade\include\object\obj.cpp(86): warning C4244: '=': 'UINT'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-d:\assortrock\api\crazyarcade\crazyarcade\include\object\obj.cpp(87): warning C4244: '=': 'UINT'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-d:\assortrock\api\crazyarcade\crazyarcade\include\object\obj.cpp(95): warning C4244: '=': 'UINT'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-d:\assortrock\api\crazyarcade\crazyarcade\include\object\obj.cpp(96): warning C4244: '=': 'UINT'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-d:\assortrock\api\crazyarcade\crazyarcade\include\object\obj.cpp(136): warning C4244: '인수': 'UINT'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-d:\assortrock\api\crazyarcade\crazyarcade\include\object\obj.cpp(154): warning C4244: '인수': 'UINT'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-d:\assortrock\api\crazyarcade\crazyarcade\include\object\obj.cpp(160): warning C4244: '인수': 'UINT'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-d:\assortrock\api\crazyarcade\crazyarcade\include\object\obj.cpp(177): warning C4244: '인수': 'UINT'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-d:\assortrock\api\crazyarcade\crazyarcade\include\object\obj.cpp(183): warning C4244: '인수': 'UINT'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-d:\assortrock\api\crazyarcade\crazyarcade\include\object\obj.cpp(196): warning C4244: '인수': 'UINT'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-d:\assortrock\api\crazyarcade\crazyarcade\include\object\obj.cpp(212): warning C4244: '인수': 'UINT'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-d:\assortrock\api\crazyarcade\crazyarcade\include\object\obj.cpp(225): warning C4244: '인수': 'UINT'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-d:\assortrock\api\crazyarcade\crazyarcade\include\object\obj.cpp(322): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-d:\assortrock\api\crazyarcade\crazyarcade\include\object\obj.cpp(323): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-d:\assortrock\api\crazyarcade\crazyarcade\include\object\obj.cpp(342): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-d:\assortrock\api\crazyarcade\crazyarcade\include\object\obj.cpp(355): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-d:\assortrock\api\crazyarcade\crazyarcade\include\object\obj.cpp(356): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-d:\assortrock\api\crazyarcade\crazyarcade\include\object\obj.cpp(375): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  CrazyArcade.vcxproj -> D:\assortrock\API\CrazyArcade\CrazyArcade\Include\../Bin\CrazyArcade.exe
+  VillageMap.cpp
+c:\users\hayoon\documents\github\crazyarcade\crazyarcade\crazyarcade\include\gameframework.h(134): warning C4244: '=': 'const LONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\hayoon\documents\github\crazyarcade\crazyarcade\crazyarcade\include\gameframework.h(135): warning C4244: '=': 'const LONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\hayoon\documents\github\crazyarcade\crazyarcade\crazyarcade\include\gameframework.h(146): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\hayoon\documents\github\crazyarcade\crazyarcade\crazyarcade\include\gameframework.h(147): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\hayoon\documents\github\crazyarcade\crazyarcade\crazyarcade\include\gameframework.h(447): warning C4244: '인수': 'const LONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\hayoon\documents\github\crazyarcade\crazyarcade\crazyarcade\include\scene\villagemap.cpp(90): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\hayoon\documents\github\crazyarcade\crazyarcade\crazyarcade\include\scene\villagemap.cpp(91): warning C4244: '초기화 중': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  CrazyArcade.vcxproj -> C:\Users\HaYoon\Documents\GitHub\CrazyArcade\CrazyArcade\CrazyArcade\Include\../Bin\CrazyArcade.exe

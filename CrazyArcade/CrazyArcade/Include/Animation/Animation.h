@@ -84,6 +84,7 @@ public:
 
 	void SetFrameX(UINT x)
 	{
+		m_bAnimationStart = false;
 		m_tInfo.iFrameX = x;
 	}
 

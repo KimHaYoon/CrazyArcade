@@ -45,8 +45,10 @@ void CUIButton::Update(float fTime)
 
 void CUIButton::Render(HDC hDC, float fTime)
 {
-	if(m_pAnimation)
+	if (m_pAnimation)
+	{
 		m_pAnimation->SetFrameX((UINT)m_eState);
+	}
 
 	CObj::Render(hDC, fTime);
 }

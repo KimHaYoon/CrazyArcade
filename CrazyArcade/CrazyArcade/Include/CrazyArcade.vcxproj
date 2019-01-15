@@ -154,6 +154,7 @@
     <ClInclude Include="Object\Tile.h" />
     <ClInclude Include="Object\TileMap.h" />
     <ClInclude Include="Object\UIButton.h" />
+    <ClInclude Include="Object\UITimer.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Resources\ResourcesManager.h" />
     <ClInclude Include="Resources\Texture.h" />
@@ -200,6 +201,7 @@
     <ClCompile Include="Object\Tile.cpp" />
     <ClCompile Include="Object\TileMap.cpp" />
     <ClCompile Include="Object\UIButton.cpp" />
+    <ClCompile Include="Object\UITimer.cpp" />
     <ClCompile Include="Resources\ResourcesManager.cpp" />
     <ClCompile Include="Resources\Texture.cpp" />
     <ClCompile Include="Scene\LobbyScene.cpp" />

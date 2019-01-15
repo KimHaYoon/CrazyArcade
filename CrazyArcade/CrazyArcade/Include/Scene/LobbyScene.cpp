@@ -3,6 +3,7 @@
 #include "Scene.h"
 #include "SceneManager.h"
 #include "VillageMap.h"
+#include "../Animation/Animation.h"
 #include "../Object/Obj.h"
 #include "../Object/ObjectManager.h"
 #include "../Object/Background.h"

@@ -23,6 +23,7 @@ CLogoScene::~CLogoScene()
 bool CLogoScene::Init()
 {
 	CLayer* pBackLayer = m_pScene->FindLayer("BackgroundLayer");
+	CLayer*	pUILayer = m_pScene->FindLayer("UILayer");
 
 	// Logo Background 
 	CObj* pBackground = GET_SINGLE(CObjectManager)->CreateObject<CBackground>("Background");
@@ -49,14 +50,10 @@ bool CLogoScene::Init()
 
 	((CUIButton*)pButton)->AddCallback<CLogoScene>(&CLogoScene::StartButtonCallback, this);
 
-	CLayer*	pUILayer = m_pScene->FindLayer("UILayer");
-
-	if (!pUILayer)
-		return false;
-
 	pUILayer->AddObject(pButton);
 
 	SAFE_RELEASE(pButton);
+
 	return true;
 }
 

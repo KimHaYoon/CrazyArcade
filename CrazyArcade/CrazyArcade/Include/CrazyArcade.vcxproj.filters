@@ -189,6 +189,9 @@
     <ClInclude Include="Object\Number.h">
       <Filter>03. Object\04. MyObject</Filter>
     </ClInclude>
+    <ClInclude Include="Object\UITimer.h">
+      <Filter>03. Object\03. UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="CrazyArcade.rc">
@@ -311,6 +314,9 @@
     </ClCompile>
     <ClCompile Include="Object\Number.cpp">
       <Filter>03. Object\04. MyObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\UITimer.cpp">
+      <Filter>03. Object\03. UI</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
