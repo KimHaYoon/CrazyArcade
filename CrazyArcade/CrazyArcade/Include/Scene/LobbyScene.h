@@ -19,9 +19,11 @@ public:
 
 private:
 	UINT	m_iSellectMap;
+	UINT	m_iItemCnt[4];
 
 private:
 	void MapSellectCallback(class CUIButton* pButton);
 	void StartButtonCallback(class CUIButton* pButton);
+	void ItemButtonCallback(class CUIButton* pButton);
 };
 

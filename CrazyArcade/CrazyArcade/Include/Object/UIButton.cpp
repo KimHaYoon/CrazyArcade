@@ -3,6 +3,8 @@
 #include "../Core/Input.h"
 #include "../Animation/Animation.h"
 
+//#define MAPTOOL
+
 CUIButton::CUIButton()
 {
 	SetTag("Button");
@@ -70,12 +72,22 @@ void CUIButton::CollisionTrigger(CCollider * p1, CCollider * p2)
 	{
 		m_eState = BS_MOUSEON;
 
+#ifdef MAPTOOL
 		if (KEYDOWN("MouseLButton") || KEYPUSH("MouseLButton"))
 		{
 			m_eState = BS_CLICK;
 			if (m_tCallback.bEnable)
 				m_tCallback.func(this);
 		}
+
+#else
+		if (KEYDOWN("MouseLButton"))
+		{
+			m_eState = BS_CLICK;
+			if (m_tCallback.bEnable)
+				m_tCallback.func(this);
+		}
+#endif // MAPTOOL
 	}
 }
 
