@@ -28,6 +28,7 @@ using namespace std;
 #define	ANIMATION_PATH	"AnimationPath"
 #define MAPDATA_PATH	"MapDataPath"
 #define ITEM_PATH       "ItemPath"
+#define DATA_PATH		"DataPath"
 
 #define	PI		3.141592f
 #define	GRAVITY	0.98f

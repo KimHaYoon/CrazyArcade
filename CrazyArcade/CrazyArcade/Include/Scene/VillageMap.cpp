@@ -10,6 +10,7 @@
 #include "../Object/UIButton.h"
 #include "../Object/Character.h"
 #include "../Collider/ColliderRect.h"
+#include "../Core/PathManager.h"
 
 CVillageMap::CVillageMap() : 
 	m_fGameLimitTime(90.f),
@@ -26,6 +27,8 @@ CVillageMap::~CVillageMap()
 
 bool CVillageMap::Init()
 {
+	Load();
+
 	CLayer* pBackLayer = m_pScene->FindLayer("BackgroundLayer");
 	CLayer* pUILayer = m_pScene->FindLayer("UILayer");
 	CLayer* pLayer = m_pScene->FindLayer("DefaultLayer");
@@ -84,7 +87,8 @@ bool CVillageMap::Init()
 	// Dao
 	CObj* pCharacter = GET_SINGLE(CObjectManager)->CreateObject<CCharacter>("Character");
 	pCharacter->SetPos(100.f, 100.f);
-	pCharacter->SetTexture("Dao", L"03.InGame/Character/Dao.bmp", true, RGB(0, 255, 0));
+	((CCharacter*)pCharacter)->SetCharacter(m_iCharacter);
+	((CCharacter*)pCharacter)->SetItemNum(m_iItem);
 
 	pLayer->AddObject(pCharacter);
 	SAFE_RELEASE(pCharacter);
@@ -130,6 +134,38 @@ void CVillageMap::ExitButtonCallback(CUIButton * pButton)
 	pScene->CreateSceneScript<CLobbyScene>();
 
 	GET_SINGLE(CSceneManager)->SetNextScene(pScene);
+}
+
+void CVillageMap::Load()
+{
+	FILE* pFile = NULL;
+
+	const char* pPath = GET_SINGLE(CPathManager)->FindPathFromMultibyte(DATA_PATH);
+
+	string strPath;
+
+	if (pPath)
+		strPath = pPath;
+
+	strPath += "Player.data";
+
+	fopen_s(&pFile, strPath.c_str(), "rb");
+
+	if (!pFile)
+		return;
+
+	// 선택한 캐릭터
+	// 아이템들 개수
+	// 선택한 맵
+
+	fread(&m_iCharacter, sizeof(m_iCharacter), 1, pFile);
+
+	for (int i = 0; i < 4; ++i)
+		fread(&m_iItem[i], sizeof(m_iItem[i]), 1, pFile);
+
+	fread(&m_iMap, sizeof(m_iMap), 1, pFile);
+
+	fclose(pFile);
 }
 
 void CVillageMap::SetCharacter(UINT iNum)

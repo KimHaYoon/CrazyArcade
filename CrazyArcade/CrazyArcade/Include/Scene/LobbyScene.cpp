@@ -10,9 +10,11 @@
 #include "../Object/UIButton.h"
 #include "../Object/UITimer.h"
 #include "../Collider/ColliderRect.h"
+#include "../Core/PathManager.h"
 
 CLobbyScene::CLobbyScene() : 
-	m_iSellectMap(0)
+	m_iSellectMap(0),
+	m_iCharacter(0)
 {
 }
 
@@ -118,13 +120,13 @@ bool CLobbyScene::Init()
 	pUILayer->AddObject(pStartButton);
 	SAFE_RELEASE(pStartButton);
 	
-	// item
+	// item 
+	// Bazzi
 	// 바늘
 	CObj* pItemButton = GET_SINGLE(CObjectManager)->CreateObject<CUIButton>("Needle");
 
 	pItemButton->SetPos(60.f, 255.f);
 	pItemButton->SetTexture("Needle", L"02.Lobby/Lobby_QButton.bmp");
-	//pItemButton->SetAnimation("LogoButton.anm");
 	tPos = pItemButton->GetPos() - pItemButton->GetPivot() * pItemButton->GetSize();
 	pRC = CColliderRect::Create("Needle", tPos.x, tPos.y, tPos.x + pItemButton->GetSize().x, tPos.y + pItemButton->GetSize().y);
 
@@ -144,7 +146,6 @@ bool CLobbyScene::Init()
 
 	pItemButton->SetPos(97.f, 255.f);
 	pItemButton->SetTexture("Dart", L"02.Lobby/Lobby_WButton.bmp");
-	//pItemButton->SetAnimation("LogoButton.anm");
 	tPos = pItemButton->GetPos() - pItemButton->GetPivot() * pItemButton->GetSize();
 	pRC = CColliderRect::Create("Dart", tPos.x, tPos.y, tPos.x + pItemButton->GetSize().x, tPos.y + pItemButton->GetSize().y);
 
@@ -164,7 +165,6 @@ bool CLobbyScene::Init()
 
 	pItemButton->SetPos(134.f, 255.f);
 	pItemButton->SetTexture("Tack", L"02.Lobby/Lobby_EButton.bmp");
-	//pItemButton->SetAnimation("LogoButton.anm");
 	tPos = pItemButton->GetPos() - pItemButton->GetPivot() * pItemButton->GetSize();
 	pRC = CColliderRect::Create("Tack", tPos.x, tPos.y, tPos.x + pItemButton->GetSize().x, tPos.y + pItemButton->GetSize().y);
 
@@ -184,7 +184,83 @@ bool CLobbyScene::Init()
 
 	pItemButton->SetPos(171.f, 255.f);
 	pItemButton->SetTexture("Banana", L"02.Lobby/Lobby_RButton.bmp");
-	//pItemButton->SetAnimation("LogoButton.anm");
+	tPos = pItemButton->GetPos() - pItemButton->GetPivot() * pItemButton->GetSize();
+	pRC = CColliderRect::Create("Banana", tPos.x, tPos.y, tPos.x + pItemButton->GetSize().x, tPos.y + pItemButton->GetSize().y);
+
+	((CUIButton*)pItemButton)->AddCallback<CLobbyScene>(&CLobbyScene::ItemButtonCallback, this);
+
+	pItemButton->AddCollider(pRC);
+
+	pRC->AddCollisionFunction<CUIButton>(CFT_ENTER, &CUIButton::CollisionEnter, (CUIButton*)pItemButton);
+	pRC->AddCollisionFunction<CUIButton>(CFT_TRIGGER, &CUIButton::CollisionTrigger, (CUIButton*)pItemButton);
+	pRC->AddCollisionFunction<CUIButton>(CFT_LEAVE, &CUIButton::CollisionLeave, (CUIButton*)pItemButton);
+
+	pUILayer->AddObject(pItemButton);
+	SAFE_RELEASE(pItemButton);
+
+	// Dao=======================================================================================================================================================
+	// 바늘
+	pItemButton = GET_SINGLE(CObjectManager)->CreateObject<CUIButton>("Needle1");
+
+	pItemButton->SetPos(250.f, 255.f);
+	pItemButton->SetTexture("Needle");
+	tPos = pItemButton->GetPos() - pItemButton->GetPivot() * pItemButton->GetSize();
+	pRC = CColliderRect::Create("Needle", tPos.x, tPos.y, tPos.x + pItemButton->GetSize().x, tPos.y + pItemButton->GetSize().y);
+
+	((CUIButton*)pItemButton)->AddCallback<CLobbyScene>(&CLobbyScene::ItemButtonCallback, this);
+
+	pItemButton->AddCollider(pRC);
+
+	pRC->AddCollisionFunction<CUIButton>(CFT_ENTER, &CUIButton::CollisionEnter, (CUIButton*)pItemButton);
+	pRC->AddCollisionFunction<CUIButton>(CFT_TRIGGER, &CUIButton::CollisionTrigger, (CUIButton*)pItemButton);
+	pRC->AddCollisionFunction<CUIButton>(CFT_LEAVE, &CUIButton::CollisionLeave, (CUIButton*)pItemButton);
+
+	pUILayer->AddObject(pItemButton);
+	SAFE_RELEASE(pItemButton);
+
+	// 다트
+	pItemButton = GET_SINGLE(CObjectManager)->CreateObject<CUIButton>("Dart1");
+
+	pItemButton->SetPos(287.f, 255.f);
+	pItemButton->SetTexture("Dart");
+	tPos = pItemButton->GetPos() - pItemButton->GetPivot() * pItemButton->GetSize();
+	pRC = CColliderRect::Create("Dart", tPos.x, tPos.y, tPos.x + pItemButton->GetSize().x, tPos.y + pItemButton->GetSize().y);
+
+	((CUIButton*)pItemButton)->AddCallback<CLobbyScene>(&CLobbyScene::ItemButtonCallback, this);
+
+	pItemButton->AddCollider(pRC);
+
+	pRC->AddCollisionFunction<CUIButton>(CFT_ENTER, &CUIButton::CollisionEnter, (CUIButton*)pItemButton);
+	pRC->AddCollisionFunction<CUIButton>(CFT_TRIGGER, &CUIButton::CollisionTrigger, (CUIButton*)pItemButton);
+	pRC->AddCollisionFunction<CUIButton>(CFT_LEAVE, &CUIButton::CollisionLeave, (CUIButton*)pItemButton);
+
+	pUILayer->AddObject(pItemButton);
+	SAFE_RELEASE(pItemButton);
+
+	// 압정 tack
+	pItemButton = GET_SINGLE(CObjectManager)->CreateObject<CUIButton>("Tack1");
+
+	pItemButton->SetPos(323.f, 255.f);
+	pItemButton->SetTexture("Tack");
+	tPos = pItemButton->GetPos() - pItemButton->GetPivot() * pItemButton->GetSize();
+	pRC = CColliderRect::Create("Tack", tPos.x, tPos.y, tPos.x + pItemButton->GetSize().x, tPos.y + pItemButton->GetSize().y);
+
+	((CUIButton*)pItemButton)->AddCallback<CLobbyScene>(&CLobbyScene::ItemButtonCallback, this);
+
+	pItemButton->AddCollider(pRC);
+
+	pRC->AddCollisionFunction<CUIButton>(CFT_ENTER, &CUIButton::CollisionEnter, (CUIButton*)pItemButton);
+	pRC->AddCollisionFunction<CUIButton>(CFT_TRIGGER, &CUIButton::CollisionTrigger, (CUIButton*)pItemButton);
+	pRC->AddCollisionFunction<CUIButton>(CFT_LEAVE, &CUIButton::CollisionLeave, (CUIButton*)pItemButton);
+
+	pUILayer->AddObject(pItemButton);
+	SAFE_RELEASE(pItemButton);
+
+	// 바나나
+	pItemButton = GET_SINGLE(CObjectManager)->CreateObject<CUIButton>("Banana1");
+
+	pItemButton->SetPos(360.f, 255.f);
+	pItemButton->SetTexture("Banana");
 	tPos = pItemButton->GetPos() - pItemButton->GetPivot() * pItemButton->GetSize();
 	pRC = CColliderRect::Create("Banana", tPos.x, tPos.y, tPos.x + pItemButton->GetSize().x, tPos.y + pItemButton->GetSize().y);
 
@@ -219,6 +295,69 @@ bool CLobbyScene::Init()
 	Number->SetPos(176.f, 255.f);
 	pUILayer->AddObject(Number);
 	SAFE_RELEASE(Number);
+
+	// Dao=======================================================================================================================================================
+	Number = GET_SINGLE(CObjectManager)->CreateObject<CUITimer>("NeedleNum1");
+	Number->SetPos(255.f, 255.f);
+	pUILayer->AddObject(Number);
+	SAFE_RELEASE(Number);
+
+	Number = GET_SINGLE(CObjectManager)->CreateObject<CUITimer>("DartNum1");
+	Number->SetPos(292.f, 255.f);
+	pUILayer->AddObject(Number);
+	SAFE_RELEASE(Number);
+
+	Number = GET_SINGLE(CObjectManager)->CreateObject<CUITimer>("TackNum1");
+	Number->SetPos(328.f, 255.f);
+	pUILayer->AddObject(Number);
+	SAFE_RELEASE(Number);
+
+	Number = GET_SINGLE(CObjectManager)->CreateObject<CUITimer>("BananaNum1");
+	Number->SetPos(365.f, 255.f);
+	pUILayer->AddObject(Number);
+	SAFE_RELEASE(Number);
+
+	// 캐릭터 선택창
+	CObj* pCharacter = GET_SINGLE(CObjectManager)->CreateObject<CUIButton>("Bazzi");
+	pCharacter->SetPos(115.f, 185.f);
+	pCharacter->SetSize(150.f, 100.f);
+	tPos = pCharacter->GetPos() - pCharacter->GetPivot() * pCharacter->GetSize();
+	pRC = CColliderRect::Create("Bazzi", tPos.x, tPos.y, tPos.x + pCharacter->GetSize().x, tPos.y + pCharacter->GetSize().y);
+
+	((CUIButton*)pCharacter)->AddCallback<CLobbyScene>(&CLobbyScene::SelectCharacterCallback, this);
+
+	pCharacter->AddCollider(pRC);
+
+	pRC->AddCollisionFunction<CUIButton>(CFT_ENTER, &CUIButton::CollisionEnter, (CUIButton*)pCharacter);
+	pRC->AddCollisionFunction<CUIButton>(CFT_TRIGGER, &CUIButton::CollisionTrigger, (CUIButton*)pCharacter);
+	pRC->AddCollisionFunction<CUIButton>(CFT_LEAVE, &CUIButton::CollisionLeave, (CUIButton*)pCharacter);
+
+	pUILayer->AddObject(pCharacter);
+	SAFE_RELEASE(pCharacter);
+
+	pCharacter = GET_SINGLE(CObjectManager)->CreateObject<CUIButton>("Dao");
+	pCharacter->SetPos(305.f, 185.f);
+	pCharacter->SetSize(150.f, 100.f);
+	tPos = pCharacter->GetPos() - pCharacter->GetPivot() * pCharacter->GetSize();
+	pRC = CColliderRect::Create("Dao", tPos.x, tPos.y, tPos.x + pCharacter->GetSize().x, tPos.y + pCharacter->GetSize().y);
+
+	((CUIButton*)pCharacter)->AddCallback<CLobbyScene>(&CLobbyScene::SelectCharacterCallback, this);
+
+	pCharacter->AddCollider(pRC);
+
+	pRC->AddCollisionFunction<CUIButton>(CFT_ENTER, &CUIButton::CollisionEnter, (CUIButton*)pCharacter);
+	pRC->AddCollisionFunction<CUIButton>(CFT_TRIGGER, &CUIButton::CollisionTrigger, (CUIButton*)pCharacter);
+	pRC->AddCollisionFunction<CUIButton>(CFT_LEAVE, &CUIButton::CollisionLeave, (CUIButton*)pCharacter);
+
+	pUILayer->AddObject(pCharacter);
+	SAFE_RELEASE(pCharacter);
+
+	// selectUI
+	pCharacter = GET_SINGLE(CObjectManager)->CreateObject<CBackground>("Select");
+	pCharacter->SetTexture("SelectCharacter", L"02.Lobby/Select.bmp", true);
+	pCharacter->SetEnable(false);
+	pUILayer->AddObject(pCharacter);
+	SAFE_RELEASE(pCharacter);
 
 	return true;
 }
@@ -277,6 +416,7 @@ void CLobbyScene::StartButtonCallback(CUIButton * pButton)
 
 	if (m_iSellectMap == 1)
 	{
+		Save();
 		pScene->CreateSceneScript<CVillageMap>();
 	}
 
@@ -293,42 +433,128 @@ void CLobbyScene::StartButtonCallback(CUIButton * pButton)
 void CLobbyScene::ItemButtonCallback(CUIButton * pButton)
 {
 	CLayer* pUILayer = m_pScene->FindLayer("UILayer");
-	CObj* pNumber;
+	CObj* pNumber = NULL;
 	int iCnt = 0;
+	int iCharacter = 0;
 
 	if (pButton->GetTag() == "Needle")
 	{
 		pNumber = pUILayer->FindObjectFromTag("NeedleNum");
 		iCnt = 0;
-		m_iItemCnt[iCnt]++;
+		iCharacter = 0;
+		m_iItemCnt[iCharacter][iCnt]++;
 	}
 
 	else if (pButton->GetTag() == "Dart")
 	{
 		pNumber = pUILayer->FindObjectFromTag("DartNum");
 		iCnt = 1;
-		m_iItemCnt[iCnt]++;
+		iCharacter = 0;
+		m_iItemCnt[iCharacter][iCnt]++;
 	}
 
 	else if (pButton->GetTag() == "Tack")
 	{
 		pNumber = pUILayer->FindObjectFromTag("TackNum");
 		iCnt = 2;
-		m_iItemCnt[iCnt]++;
+		iCharacter = 0;
+		m_iItemCnt[iCharacter][iCnt]++;
 	}
 
-	else										// 바나나
+	else if (pButton->GetTag() == "Banana")
 	{
 		pNumber = pUILayer->FindObjectFromTag("BananaNum");
 		iCnt = 3;
-		m_iItemCnt[iCnt]++;
+		iCharacter = 0;
+		m_iItemCnt[iCharacter][iCnt]++;
 	}
 
-	for (int i = 0; i < 4; ++i)
+	else if (pButton->GetTag() == "Needle1")
 	{
-		m_iItemCnt[i] %= 10;
+		pNumber = pUILayer->FindObjectFromTag("NeedleNum1");
+		iCnt = 0;
+		iCharacter = 1;
+		m_iItemCnt[iCharacter][iCnt]++;
 	}
 
-	((CUITimer*)pNumber)->SetNumber(m_iItemCnt[iCnt]);
+	else if (pButton->GetTag() == "Dart1")
+	{
+		pNumber = pUILayer->FindObjectFromTag("DartNum1");
+		iCnt = 1;
+		iCharacter = 1;
+		m_iItemCnt[iCharacter][iCnt]++;
+	}
+
+	else if (pButton->GetTag() == "Tack1")
+	{
+		pNumber = pUILayer->FindObjectFromTag("TackNum1");
+		iCnt = 2;
+		iCharacter = 1;
+		m_iItemCnt[iCharacter][iCnt]++;
+	}
+
+	else if (pButton->GetTag() == "Banana1")
+	{
+		pNumber = pUILayer->FindObjectFromTag("BananaNum1");
+		iCnt = 3;
+		iCharacter = 1;
+		m_iItemCnt[iCharacter][iCnt]++;
+	}
+
+	for (int j = 0; j < 2; ++j)
+	{
+		for (int i = 0; i < 4; ++i)
+		{
+			m_iItemCnt[j][i] %= 10;
+		}
+	}
+
+	((CUITimer*)pNumber)->SetNumber(m_iItemCnt[iCharacter][iCnt]);
+
 	SAFE_RELEASE(pNumber);
+}
+
+void CLobbyScene::SelectCharacterCallback(CUIButton * pButton)
+{
+	if (pButton->GetTag() == "Bazzi")
+		m_iCharacter = 0;
+
+	else if (pButton->GetTag() == "Dao")
+		m_iCharacter = 1;
+
+	CLayer* pUILayer = m_pScene->FindLayer("UILayer");
+	CObj* pObj = pUILayer->FindObjectFromTag("Select");
+	pObj->SetPos(pButton->GetPos());
+	pObj->SetPivot(0.5f, 0.5f);
+	pObj->SetEnable(true);
+	SAFE_RELEASE(pObj);
+}
+
+void CLobbyScene::Save()
+{
+	// 선택한 캐릭터
+	// 아이템들 개수
+	// 선택한 맵
+
+	FILE* pFile = NULL;
+
+	const char* pPath = GET_SINGLE(CPathManager)->FindPathFromMultibyte(DATA_PATH);
+
+	string strPath;
+
+	if (pPath)
+		strPath = pPath;
+
+	strPath += "Player.data";
+
+	fopen_s(&pFile, strPath.c_str(), "wb");
+
+	fwrite(&m_iCharacter, sizeof(m_iCharacter), 1, pFile);
+	
+	for(int  i = 0; i < 4; ++i)
+		fwrite(&m_iItemCnt[m_iCharacter][i], sizeof(m_iItemCnt[m_iCharacter][i]), 1, pFile);
+
+	fwrite(&m_iSellectMap, sizeof(m_iSellectMap), 1, pFile);
+
+	fclose(pFile);
 }

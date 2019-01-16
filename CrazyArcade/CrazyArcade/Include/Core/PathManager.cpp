@@ -33,6 +33,7 @@ bool CPathManager::Init()
 	CreatePath(ANIMATION_PATH, L"Animation\\");
 	CreatePath(MAPDATA_PATH, L"MapData\\");
 	CreatePath(ITEM_PATH, L"Item\\");
+	CreatePath(DATA_PATH, L"Data\\");
 
 	return true;
 }

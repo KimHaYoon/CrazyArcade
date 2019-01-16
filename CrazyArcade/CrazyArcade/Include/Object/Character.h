@@ -17,5 +17,13 @@ public:
 	virtual void Update(float fTime);
 	virtual void Render(HDC hDC, float fTime);
 	virtual CCharacter* Clone();
+
+private:
+	UINT	m_iCharacter;
+	UINT	m_iItem[4];
+
+public:
+	void SetCharacter(UINT iNum);
+	void SetItemNum(UINT iItem[4]);
 };
 
