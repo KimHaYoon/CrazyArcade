@@ -182,5 +182,7 @@ void CLobbyScene::StartButtonCallback(CUIButton * pButton)
 		//pScene->CreateSceneScript<CLobbyScene>();
 	}
 
+	// 선택된 캐릭터 파일 입출력 or 전역변수 생성
+
 	GET_SINGLE(CSceneManager)->SetNextScene(pScene);
 }

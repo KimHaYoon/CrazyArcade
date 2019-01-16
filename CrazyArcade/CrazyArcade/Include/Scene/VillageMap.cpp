@@ -2,18 +2,21 @@
 #include "Layer.h"
 #include "Scene.h"
 #include "SceneManager.h"
+#include "LobbyScene.h"
 #include "../Object/Obj.h"
 #include "../Object/ObjectManager.h"
 #include "../Object/Background.h"
 #include "../Object/UITimer.h"
 #include "../Object/UIButton.h"
+#include "../Object/Character.h"
 #include "../Collider/ColliderRect.h"
 
 CVillageMap::CVillageMap() : 
 	m_fGameLimitTime(90.f),
 	m_iMinute(0),
 	m_iTenSec(0),
-	m_iOneSec(0)
+	m_iOneSec(0),
+	m_iCharacter(0)
 {
 }
 
@@ -25,6 +28,7 @@ bool CVillageMap::Init()
 {
 	CLayer* pBackLayer = m_pScene->FindLayer("BackgroundLayer");
 	CLayer* pUILayer = m_pScene->FindLayer("UILayer");
+	CLayer* pLayer = m_pScene->FindLayer("DefaultLayer");
 
 	// Stage Default Background 
 	CObj* pBackground = GET_SINGLE(CObjectManager)->CreateObject<CBackground>("InGameBG");
@@ -77,6 +81,13 @@ bool CVillageMap::Init()
 	pUILayer->AddObject(pExitButton);
 	SAFE_RELEASE(pExitButton);
 
+	// Dao
+	CObj* pCharacter = GET_SINGLE(CObjectManager)->CreateObject<CCharacter>("Character");
+	pCharacter->SetPos(100.f, 100.f);
+	pCharacter->SetTexture("Dao", L"03.InGame/Character/Dao.bmp", true, RGB(0, 255, 0));
+
+	pLayer->AddObject(pCharacter);
+	SAFE_RELEASE(pCharacter);
 
 	return true;
 }
@@ -106,8 +117,6 @@ void CVillageMap::Update(float fTime)
 	SAFE_RELEASE(pTimer);
 
 	m_fGameLimitTime -= fTime;
-
-	//_cprintf("%d : %d%d \n", m_iMinute, m_iTenSec, m_iOneSec);
 }
 
 void CVillageMap::Render(HDC hDC, float fTime)
@@ -116,4 +125,14 @@ void CVillageMap::Render(HDC hDC, float fTime)
 
 void CVillageMap::ExitButtonCallback(CUIButton * pButton)
 {
+	CScene* pScene = GET_SINGLE(CSceneManager)->CreateScene();
+
+	pScene->CreateSceneScript<CLobbyScene>();
+
+	GET_SINGLE(CSceneManager)->SetNextScene(pScene);
+}
+
+void CVillageMap::SetCharacter(UINT iNum)
+{
+	m_iCharacter = iNum;
 }
